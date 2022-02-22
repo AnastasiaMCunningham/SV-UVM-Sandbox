@@ -10,6 +10,7 @@
 // Target Devices: Zedboard evaluation hardware
 //     To add board file: https://digilent.com/reference/programmable-logic/guides/installing-vivado-and-vitis
 // Tool Versions: Xilinx 2021.2
+//      To add UVM to projects: https://support.xilinx.com/s/article/1070861?language=en_US
 // Description: A project for exploring SystemVerilog 
 // 
 // Dependencies: classPkg.sv
