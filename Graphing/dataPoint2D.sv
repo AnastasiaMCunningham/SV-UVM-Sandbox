@@ -33,6 +33,8 @@ module dataPoint2D;
     Point #(.dimensions(2)) p2 = new;
     Point #(.dimensions(3)) p3 = new;
     
+    line2D L1 = new({3, 4}, {6, 8});
+    
     //-- error checking --//
     //Point #(0) p0 = new(); //will attempt to make an empty array, no coordinates
     //Point #(1) pBad1 = new(pos[0:5]); //will take in an array of pos that's too big
@@ -42,6 +44,9 @@ module dataPoint2D;
     p1.populatePositions(arr[0:0]);
     p2.populatePositions(arr[1:2]);
     p3.populatePositions(arr[3:5]);
+    
+//    L1.P[0].populatePositions({3, 4});
+//    L1.P[1].populatePositions({6, 8});
     
     p1.printData();
     p2.printData();
