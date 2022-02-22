@@ -20,32 +20,57 @@ class Position;
 endclass
 
 //-- class for storing dimension and array of Positions --//
-class Point #(int dimension = 1);
-    Position pos [0 : dimension-1];
+class Point #(int dimensions = 1);
+    Position pos [0 : dimensions-1];
     
     //custom constructor for aggregate class
     function new ();
-        for (int i = 0; i < dimension; i ++) begin
+        for (int i = 0; i < dimensions; i ++) begin
             pos [i] = new;
         end
     endfunction
     
     //populates position array with coordinates
-    function void populatePositions(int p[dimension]);
-        for(int i = 0; i<dimension; i++) begin
+    extern function void populatePositions(int p[dimensions]);
+    
+    //prints the object's properties to the Tcl Console
+    extern function void printData();
+    
+endclass
+
+class shape #(int pointCount = 1, int dimensions = 1);
+    Point #(dimensions) P [0 : pointCount-1];
+    
+    //custom constructor for aggregate class
+    function new();
+        for (int i = 0; i < pointCount; i++) begin
+            P[i] = new;
+        end
+    endfunction
+endclass
+
+class line2D extends shape #(.pointCount(2), .dimensions(2));
+
+endclass
+
+//----- Class Modules -----//
+
+    //---- Point ----//
+    
+    //prints the object's properties to the Tcl Console
+    function void Point::printData();
+        $write("dimensions = %0d positions = { ", this.dimensions);
+        for(int i = 0; i<this.dimensions; i++) begin
+            $write("%0d  ", this.pos[i].coordinate);
+        end
+        $display("}");
+    endfunction
+    
+    //populates position array with coordinates
+    function void Point::populatePositions(int p[dimensions]);
+        for(int i = 0; i<dimensions; i++) begin
             pos[i].set(p[i]);
         end
     endfunction
-    
-    //prints the object's properties to the Tcl Console
-    function void printData();
-        $write("dimension = %0d positions = ", this.dimension);
-        for(int i = 0; i<this.dimension; i++) begin
-            $write("%0d  ", this.pos[i].coordinate);
-        end
-        $display("");
-    endfunction
-    
-endclass
 
 endpackage

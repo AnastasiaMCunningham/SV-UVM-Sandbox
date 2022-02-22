@@ -29,9 +29,9 @@ module dataPoint2D;
     int arr[6] = {3, 4, 5, 6, 7, 8};
     
         
-    Point #(.dimension(1)) p1 = new;
-    Point #(.dimension(2)) p2 = new;
-    Point #(.dimension(3)) p3 = new;
+    Point #(.dimensions(1)) p1 = new;
+    Point #(.dimensions(2)) p2 = new;
+    Point #(.dimensions(3)) p3 = new;
     
     //-- error checking --//
     //Point #(0) p0 = new(); //will attempt to make an empty array, no coordinates
