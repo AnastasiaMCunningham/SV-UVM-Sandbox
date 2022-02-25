@@ -35,6 +35,7 @@ module dataPoint2D;
 //    Point #(.dimensions(3)) p3 = new;
     
     Line2D L1 = new({3, 4}, {6, 8});
+    Triangle #(2) T1 = new({1,2}, {3,4}, {5,6});
     
     //-- error checking --//
     //Point #(0) p0 = new(); //will attempt to make an empty array, no coordinates

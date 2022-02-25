@@ -90,6 +90,25 @@ class Line2D extends Shape #(.pointCount(2), .dimensions(2));
     
 endclass
 
+//triangle class allows for the triangle to exist in any amount of dimensions
+class Triangle #(int dimension = 2) extends Shape #(.pointCount(3), .dimensions(dimension));
+    real perimeter, area;
+        
+    function new(int p1[dimension], int p2[dimension], int p3[dimension]);
+        super.new({p1, p2, p3});
+        perimeter = calcPerimeter;
+        area = calcArea;
+    endfunction
+    
+    //calculates perimeter of triangle
+    extern function real calcPerimeter;
+    
+    //calculates area of triangle
+    extern function real calcArea;
+    
+endclass
+    
+
 //----- Class Modules -----//
 
     //---- Point ----//
@@ -127,5 +146,15 @@ endclass
 
     endfunction
 
+    //---- Triangle ----//
+    //calculates perimeter of triangle
+    function real Triangle::calcPerimeter;
+        
+    endfunction
+    
+    //calculates area of triangle
+    function real Triangle::calcArea;
+        
+    endfunction
 
 endpackage
