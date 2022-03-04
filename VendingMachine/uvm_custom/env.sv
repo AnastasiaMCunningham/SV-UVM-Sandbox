@@ -18,7 +18,7 @@ class vm_env extends uvm_env;
         //build sub-component
         //build agent class
         agnt = vm_agent::type_id::create("agnt", this);
-        `uvm_info(get_type_name(), "In the build phase", UVM_MEDIUM);
+//        `uvm_info(get_type_name(), "In the build phase", UVM_MEDIUM);
     endfunction
     
     //connect phase

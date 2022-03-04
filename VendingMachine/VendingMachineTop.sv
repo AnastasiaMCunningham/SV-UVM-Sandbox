@@ -18,16 +18,19 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+//ifndef interface
+//`include "interface.sv"
+//endif
 
 module VendingMachineTop(
-    input   bit [7:0] input_1,
-    input   bit [7:0] input_2,
-    output  bit [15:0] output_1
+    vm_interface intf
+//    input   bit [7:0] input_1,
+//    input   bit [7:0] input_2,
+//    output  bit [15:0] output_1
     );
 
-    initial @(input_1, input_2) begin
-        output_1 <= {input_1, input_2};
+    initial @(intf.input_1, intf.input_2) begin
+        intf.output_1 <= {intf.input_1, intf.input_2};
     end
 
 endmodule

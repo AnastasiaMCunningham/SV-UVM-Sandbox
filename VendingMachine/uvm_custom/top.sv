@@ -18,7 +18,7 @@ module top();
 
     vm_interface intf();
 
-    VendingMachineTop uut(); //design I am testing
+    VendingMachineTop uut(intf); //design I am testing
     
     initial begin
         //set method
